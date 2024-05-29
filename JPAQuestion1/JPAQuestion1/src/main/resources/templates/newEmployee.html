@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add borrower</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Employee</h1>
+        <div class="form-container">
+            <form th:action="@{/employeeAdded}" method="POST" th:object="${newEmployee}">
+                <label for="name">Enter Your FirstName</label>
+                <input type="text" placeholder="Enter FirstName" name="FirstName" th:field="*{FirstName}">
+          
+
+                <label for="department">Enter Your LastName</label>
+                <input type="text" placeholder="Enter lastname" name="LastName" th:field="*{LastName}">
+                
+                <label for="address">Enter Your department</label>
+                <input type="text" placeholder="Enter department" name="Department" th:field="*{Department}">
+               
+				
+                <label for="email">Enter Your email</label>
+                <input type="email" placeholder="Enter emailid" name="Email" th:field="*{Email}">
+
+    
+                <input type="submit">
+                
+            </form>
+            <div th:if="${message}" th:text="${message}"></div>
+        </div>
+    </div>
+</body>
+</html>

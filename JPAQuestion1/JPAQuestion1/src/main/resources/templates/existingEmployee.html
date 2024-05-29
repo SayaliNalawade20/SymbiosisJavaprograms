@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+<thead>
+<th>Id</th>
+<th>Employee Name</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>Department</th>
+				<th>Email</th>
+			</thead>
+			<tbody>
+				<tr th:each="employee: ${employees}">
+					<td th:text="${employee.Id}">Id</td>
+					<td th:text="${employee.FirstName}">FirstName</td>
+					<td th:text="${employee.LastName}">LastName</td>
+					<td th:text="${employee.Department}">Department</td>
+					<td th:text="${employee.Email}">Email</td>
+					
+				</tr>
+			<a th:href="@{/employee/edit/{Id}(Id=${employee.Id})}">Edit</a>
+			</tbody>
+		</table>
+		 
+                
+
+    <div th:if="${employee != null}">
+        <h2>Update Employee</h2>
+        <form th:action="@{/employee/update}" th:object="${employee}" method="post">
+            <input type="hidden" th:field="*{Id}"/>
+            <label for="firstName">First Name:</label>
+            <input type="text" th:field="*{firstName}" id="firstName" name="firstName"/>
+            <br/>
+            <label for="lastName">Last Name:</label>
+            <input type="text" th:field="*{lastName}" id="lastName" name="lastName"/>
+            <br/>
+            <label for="department">Department:</label>
+            <input type="text" th:field="*{department}" id="department" name="department"/>
+            <br/>
+            <label for="email">Email:</label>
+            <input type="email" th:field="*{email}" id="email" name="email"/>
+            <br/>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

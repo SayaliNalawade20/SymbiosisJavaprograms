@@ -27,26 +27,6 @@
 			</tbody>
 		</table>
 		 
-                
-
-    <div th:if="${employee != null}">
-        <h2>Update Employee</h2>
-        <form th:action="@{/employee/update}" th:object="${employee}" method="post">
-            <input type="hidden" th:field="*{Id}"/>
-            <label for="firstName">First Name:</label>
-            <input type="text" th:field="*{firstName}" id="firstName" name="firstName"/>
-            <br/>
-            <label for="lastName">Last Name:</label>
-            <input type="text" th:field="*{lastName}" id="lastName" name="lastName"/>
-            <br/>
-            <label for="department">Department:</label>
-            <input type="text" th:field="*{department}" id="department" name="department"/>
-            <br/>
-            <label for="email">Email:</label>
-            <input type="email" th:field="*{email}" id="email" name="email"/>
-            <br/>
-            <button type="submit">Update</button>
-        </form>
-    </div>
+        
 </body>
 </html>
